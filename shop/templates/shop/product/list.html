@@ -1,0 +1,660 @@
+
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}PRODUCTS {% endblock %}
+
+{% block content %}
+    <main class="main">
+
+        {% if messages %}
+            {% for message in messages %}
+            <div class="container-fluid p-0">
+                <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="True">&times;</span>
+                  </button>
+                  {{ message }}
+                </div>
+              </div>
+            {% endfor %}
+        {% endif %}
+    
+        <!-- .............START OF INTRO SLIDER CONTAINER........................... -->
+        <div class="intro-slider-container">
+            <div class="intro-slider owl-carousel owl-simple owl-nav-inside owl-loaded owl-drag" data-toggle="owl" data-owl-options="{
+                    &quot;nav&quot;: false,
+                    &quot;responsive&quot;: {
+                        &quot;992&quot;: {
+                            &quot;nav&quot;: true
+                        }
+                    }
+                }">
+                <!-- End .intro-slide -->
+
+                <!-- End .intro-slide -->
+
+                <!-- End .intro-slide -->
+
+            <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1440px, 0px, 0px); transition: all 0s ease 0s; width: 5040px;"><div class="owl-item cloned" style="width: 720px;"><div class="intro-slide" style="background-image: url({% static "assets/images/demos/demo-13/slider/home.jpg" %});">
+                    <div class="container intro-content">
+                        <div class="row">
+                            <div class="col-auto offset-lg-3 intro-col">
+                                <h3 class="intro-subtitle">{{office_and_home_appliances_category.name}}</h3><!-- End .h3 intro-subtitle -->
+                                <h1 class="intro-title">New Year <br>Procurement
+                                </h1><!-- End .intro-title -->
+
+                                <a href="{{office_and_home_appliances_category.get_absolute_url}}" class="btn btn-outline-primary-2">
+                                    <span>Shop Now</span>
+                                    <i class="icon-long-arrow-right"></i>
+                                </a>
+                            </div><!-- End .col-auto offset-lg-3 -->
+                        </div><!-- End .row -->
+                    </div><!-- End .container intro-content -->
+
+                </div></div><div class="owl-item active" style="width: 720px;"><div class="intro-slide" style="background-image: url({% static "assets/images/demos/demo-13/slider/slide-1.png" %});">
+                    <div class="container intro-content">
+                        <div class="row">
+                            <div class="col-auto offset-lg-3 intro-col">
+                                <h3 class="intro-subtitle">Trade-In Offer</h3><!-- End .h3 intro-subtitle -->
+                                <h1 class="intro-title">MacBook Air <br>Latest Model
+                                    <span>
+                                        <sup class="font-weight-light">from</sup>
+                                        <span class="text-primary">$999<sup>,99</sup></span>
+                                    </span>
+                                </h1><!-- End .intro-title -->
+
+                                <a href="{{computers_and_tablets_category.get_absolute_url}}" class="btn btn-outline-primary-2">
+                                    <span>Shop Now</span>
+                                    <i class="icon-long-arrow-right"></i>
+                                </a>
+                            </div><!-- End .col-auto offset-lg-3 -->
+                        </div><!-- End .row -->
+
+                    </div><!-- End .container intro-content -->
+
+                </div></div><div class="owl-item" style="width: 720px;"><div class="intro-slide" style="background-image: url({% static "assets/images/demos/demo-13/slider/slide-2.jpg" %});">
+                    <div class="container intro-content">
+                        <div class="row">
+                            <div class="col-auto offset-lg-3 intro-col">
+                                <a href="{{audio_and_video_category.get_absolute_url}}" class="btn btn-outline-primary-2">
+                                    <span>Shop Now</span>
+                                    <i class="icon-long-arrow-right"></i>
+                                </a>
+                            </div><!-- End .col-auto offset-lg-3 -->
+                        </div><!-- End .row -->
+                    </div><!-- End .container intro-content -->
+
+                </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><i class="icon-angle-left"></i></button><button type="button" role="presentation" class="owl-next"><i class="icon-angle-right"></i></button></div><div class="owl-dots"><button role="button" class="owl-dot active"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button></div></div><!-- End .owl-carousel owl-simple -->
+            <span class="slider-loader"></span><!-- End .slider-loader -->
+        </div>
+        <!-- ...................END OF INTRO SLIDER CONTAINER.............................. -->
+
+        <div class="mb-4"></div>
+        <!-- End .mb-2 -->
+
+        <!--............................... START OF TOP CONTAINER................................. -->
+        <div class="container">
+            <h2 class="title text-center mb-2">Explore Popular Categories</h2><!-- End .title -->
+
+            <div class="cat-blocks-container">
+                <div class="row">
+                    {% for category in categories %}
+                    <div class="col-6 col-sm-4 col-lg-2">
+                        <a href="{{ category.get_absolute_url }}" class="cat-block">
+                            <figure>
+                                <span>
+                                    <img src="{% static "assets/images/demos/demo-13/cats/1.jpg" %}" alt="Category image">
+                                </span>
+                            </figure>
+
+                            <h3 class="cat-block-title">{{ category.name }}</h3><!-- End .cat-block-title -->
+                        </a>
+                    </div><!-- End .col-sm-4 col-lg-2 -->
+                    {% endfor %}
+                </div><!-- End .row -->
+            </div><!-- End .cat-blocks-container -->
+        </div>
+
+    </main>
+    <!-- ....................END OF MAIN........................................ -->
+
+    <!-- ...................DISCOUNT DESCRIPTION FOR CATEGORIES....................... -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-lg-3">
+                <div class="banner banner-overlay">
+                    <a href="index-13.html#">
+                        <img src="{% static "assets/images/demos/demo-13/banners/banner3.jpg" %}" alt="Banner" style="width: 400px;height: 357px;">
+                    </a>
+
+                    <div class="banner-content">
+                        <h4 class="banner-subtitle text-white"><a href="{{gaming_category.get_absolute_url}}">Weekend Sale</a></h4><!-- End .banner-subtitle -->
+                        <h3 class="banner-title text-white"><a href="{{gaming_category.get_absolute_url}}">Unleash <br>Gaming <br><span>Power</span></a></h3><!-- End .banner-title -->
+                        <a href="{{gaming_category.get_absolute_url}}" class="banner-link">Shop Now <i class="icon-long-arrow-right"></i></a>
+                    </div><!-- End .banner-content -->
+                </div><!-- End .banner -->
+            </div><!-- End .col-lg-3 -->
+
+            <div class="col-sm-6 col-lg-3 order-lg-last">
+                <div class="banner banner-overlay">
+                    <a href="index-13.html#">
+                        <img src="{% static "assets/images/demos/demo-13/banners/banner4.jpg" %}" alt="Banner" style="width: 400px; height: 357px;">
+                    </a>
+
+                    <div class="banner-content">
+                        <h4 class="banner-subtitle text-white"><a href="{{smartphones_and_mobile_devices_category.get_absolute_url}}">Smart Offer</a></h4><!-- End .banner-subtitle -->
+                        <h3 class="banner-title text-white"><a href="{{smartphones_and_mobile_devices_category.get_absolute_url}}">Anniversary <br>Special <br><span>15% off</span></a></h3><!-- End .banner-title -->
+                        <a href="{{smartphones_and_mobile_devices_category.get_absolute_url}}" class="banner-link">Shop Now <i class="icon-long-arrow-right"></i></a>
+                    </div><!-- End .banner-content -->
+                </div><!-- End .banner -->
+            </div><!-- End .col-lg-3 -->
+
+            <div class="col-lg-6">
+                <div class="banner banner-overlay">
+                    <a href="{{audio_and_video_category.get_absolute_url}}">
+                        <img src="{% static "assets/images/demos/demo-13/banners/banner.jpg" %}" alt="Banner" >
+                    </a>
+
+                    <div class="banner-content">
+                        <h4 class="banner-subtitle text-white d-none d-sm-block"><a href="{{audio_and_video_category.get_absolute_url}}">Amazing Value</a></h4><!-- End .banner-subtitle -->
+                        <h3 class="banner-title text-white"><a href="{{audio_and_video_category.get_absolute_url}}">vibrant Sound <br>exclusive Design</a></h3><!-- End .banner-title -->
+                        <a href="{{audio_and_video_category.get_absolute_url}}" class="banner-link">Discover Now <i class="icon-long-arrow-right"></i></a>
+                    </div><!-- End .banner-content -->
+                </div><!-- End .banner -->
+            </div><!-- End .col-lg-6 -->
+        </div><!-- End .row -->
+    </div>
+    <!-- ...................END FPR DICOUNT DESCRIPTION BY CATEGORY......................... -->
+
+
+
+    <!-- ..................START OF BG-LIGHT PT5 OR HOT DEALS SECTION......................... -->
+
+    <div class="bg-light pt-3 pb-5">
+        <div class="container">
+            <div class="heading heading-flex heading-border mb-3">
+                <div class="heading-left">
+                    <h2 class="title">Hot Deals Products</h2><!-- End .title -->
+                </div><!-- End .heading-left -->
+            </div><!-- End .heading -->
+
+            <div class="tab-content tab-content-carousel">
+                <div class="tab-pane p-0 fade show active" id="hot-all-tab" role="tabpanel" aria-labelledby="hot-all-link">
+                    <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow owl-loaded owl-drag" data-toggle="owl" data-owl-options="{
+                            &quot;nav&quot;: false, 
+                            &quot;dots&quot;: true,
+                            &quot;margin&quot;: 20,
+                            &quot;loop&quot;: false,
+                            &quot;responsive&quot;: {
+                                &quot;0&quot;: {
+                                    &quot;items&quot;:2
+                                },
+                                &quot;480&quot;: {
+                                    &quot;items&quot;:2
+                                },
+                                &quot;768&quot;: {
+                                    &quot;items&quot;:3
+                                },
+                                &quot;992&quot;: {
+                                    &quot;items&quot;:4
+                                },
+                                &quot;1280&quot;: {
+                                    &quot;items&quot;:5,
+                                    &quot;nav&quot;: true
+                                }
+                            }
+                        }">
+                        <!-- End .product -->
+
+                        <!-- End .product -->
+
+                        <!-- End .product -->
+
+                        <!-- End .product -->
+
+                        <!-- End .product -->
+
+                        <!-- End .product -->
+
+
+                    <div class="owl-stage-outer">
+                        <div class="owl-stage" style="transform: translate3d(-1440px, 0px, 0px); transition: all 1.6s ease 0s; width: 2160px;">
+                            <div class="owl-item" style="width: 340px; margin-right: 20px;">
+                                <div class="product">
+
+
+                    {% for product in hot_deal_products %}               
+                        <figure class="product-media">
+                                <a href="{{ product.get_absolute_url }}">
+                                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "assets/images/no-image.png"%}{% endif %}"
+                                      class="product-image">
+                                </a>
+
+                                <div class="product-action">
+                                    <span class="product_id" style="display: none;">{{ product.id }}</span>
+                                    <a href="{% url "cart:cart_detail" %}" class="btn-product btn-cart add_to_cart" title="Add to cart"><span>add to cart</span></a>
+                                </div><!-- End .product-action -->
+                            </figure><!-- End .product-media -->
+
+                            <div class="product-body">
+                                <div class="product-cat">
+                                    <a href="{{product.category.get_absolute_url}}">{{ product.category.name }}</a>
+                                </div><!-- End .product-cat -->
+                                <h3 class="product-title"><a href="{{product.get_absolute_url}}">{{ product.name }}</a></h3><!-- End .product-title -->
+                                <div class="product-price">
+                                    <span class="new-price">${{ product.price }}</span>
+                                </div><!-- End .product-price -->
+                                <div class="ratings-container">
+                                    <div class="ratings">
+                                        <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
+                                    </div><!-- End .ratings -->
+                                </div><!-- End .rating-container -->
+                            </div><!-- End .product-body -->
+                        </div></div><div class="owl-item" style="width: 340px; margin-right: 20px;"><div class="product">
+
+                    {% endfor %}
+
+                        </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev disabled"><i class="icon-angle-left"></i></button><button type="button" role="presentation" class="owl-next"><i class="icon-angle-right"></i></button></div><div class="owl-dots"><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot active"><span></span></button></div></div><!-- End .owl-carousel -->
+                </div><!-- .End .tab-pane -->
+                <!-- ###########END OF LLOP TO GENERATE PRODUCTS FROM THE DATABASE################ -->
+
+            </div><!-- End .tab-content -->
+        </div><!-- End .container -->
+    </div>
+
+    <!-- ...................................END OF HOT DEALS SECTION.......................................... -->
+    <div class="mb-3"></div>
+    
+    
+
+    <!-- ..............................START OF ELECTRONIC PRODUCTS LISTING........................... -->
+
+    <div class="container electronics">
+        <div class="heading heading-flex heading-border mb-3">
+            <div class="heading-left">
+                <h2 class="title">COMPUTERS & TABLETS </h2><!-- End .title -->
+            </div><!-- End .heading-left -->
+        </div><!-- End .heading -->
+
+        <div class="tab-content tab-content-carousel">
+            <div class="tab-pane p-0 fade show active" id="elec-new-tab" role="tabpanel" aria-labelledby="elec-new-link">
+                <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow owl-loaded owl-drag" data-toggle="owl" data-owl-options="{
+                        &quot;nav&quot;: false, 
+                        &quot;dots&quot;: true,
+                        &quot;margin&quot;: 20,
+                        &quot;loop&quot;: false,
+                        &quot;responsive&quot;: {
+                            &quot;0&quot;: {
+                                &quot;items&quot;:2
+                            },
+                            &quot;480&quot;: {
+                                &quot;items&quot;:2
+                            },
+                            &quot;768&quot;: {
+                                &quot;items&quot;:3
+                            },
+                            &quot;992&quot;: {
+                                &quot;items&quot;:4
+                            },
+                            &quot;1280&quot;: {
+                                &quot;items&quot;:5,
+                                &quot;nav&quot;: true
+                            }
+                        }
+                    }">
+                    <!-- End .product -->
+
+                    <!-- End .product -->
+
+                    <!-- End .product -->
+
+                    <!-- End .product -->
+
+                    <!-- End .product -->
+                <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1800px;"><div class="owl-item active" style="width: 340px; margin-right: 20px;"><div class="product">
+                        
+                    {% for product in computers_and_tablets %}
+                    <figure class="product-media">
+                            <a href="{{product.get_absolute_url}}">
+                                <img src="{% if product.image %}{{ product.image.url }}{% endif %}" class="product-image" style="max-width: 100%;max-height: 100%;">
+                            </a>
+
+                            <div class="product-action">
+                                <a href="index-13.html#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
+                            </div><!-- End .product-action -->
+                        </figure><!-- End .product-media -->
+
+                        <div class="product-body">
+                            <div class="product-cat">
+                                <a href="{{ product.category.get_absolute_url }}">{{ product.category.name }}</a>
+                            </div><!-- End .product-cat -->
+                            <h3 class="product-title"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h3><!-- End .product-title -->
+                            <div class="product-price">
+                                TZS{{ product.price }}
+                            </div><!-- End .product-price -->
+                            <div class="ratings-container">
+                                <div class="ratings">
+                                    <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
+                                </div><!-- End .ratings -->
+                            </div><!-- End .rating-container -->
+                        </div><!-- End .product-body -->
+                    </div></div><div class="owl-item active" style="width: 340px; margin-right: 20px;"><div class="product">
+
+                        {% endfor %}
+                    </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev disabled"><i class="icon-angle-left"></i></button><button type="button" role="presentation" class="owl-next disabled"><i class="icon-angle-right"></i></button></div><div class="owl-dots"><button role="button" class="owl-dot active"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button></div></div><!-- End .owl-carousel -->
+            </div><!-- .End .tab-pane -->
+        </div><!-- End .tab-content -->
+    </div>
+<!--...............................END OF THE CONTAINER................................... -->
+    <div class="mb-3"></div>
+
+
+    <!-- ..................START OF THE AUDIO AND VIDEO CATEGORY............... -->
+    <div class="container electronics">
+        <div class="heading heading-flex heading-border mb-3">
+            <div class="heading-left">
+                <h2 class="title">AUDIO & VIDEO </h2><!-- End .title -->
+            </div><!-- End .heading-left -->
+        </div><!-- End .heading -->
+
+        <div class="tab-content tab-content-carousel">
+            <div class="tab-pane p-0 fade show active" id="elec-new-tab" role="tabpanel" aria-labelledby="elec-new-link">
+                <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow owl-loaded owl-drag" data-toggle="owl" data-owl-options="{
+                        &quot;nav&quot;: false, 
+                        &quot;dots&quot;: true,
+                        &quot;margin&quot;: 20,
+                        &quot;loop&quot;: false,
+                        &quot;responsive&quot;: {
+                            &quot;0&quot;: {
+                                &quot;items&quot;:2
+                            },
+                            &quot;480&quot;: {
+                                &quot;items&quot;:2
+                            },
+                            &quot;768&quot;: {
+                                &quot;items&quot;:3
+                            },
+                            &quot;992&quot;: {
+                                &quot;items&quot;:4
+                            },
+                            &quot;1280&quot;: {
+                                &quot;items&quot;:5,
+                                &quot;nav&quot;: true
+                            }
+                        }
+                    }">
+                    <!-- End .product -->
+
+                    <!-- End .product -->
+
+                    <!-- End .product -->
+
+                    <!-- End .product -->
+
+                    <!-- End .product -->
+                <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1800px;"><div class="owl-item active" style="width: 340px; margin-right: 20px;"><div class="product">
+                        
+                    {% for product in audio_and_video %}
+                    <figure class="product-media">
+                            <a href="{{product.get_absolute_url}}">
+                                <img src="{% if product.image %}{{ product.image.url }}{% endif %}" class="product-image">
+                            </a>
+
+                            <div class="product-action">
+                                <a href="index-13.html#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
+                            </div><!-- End .product-action -->
+                        </figure><!-- End .product-media -->
+
+                        <div class="product-body">
+                            <div class="product-cat">
+                                <a href="{{ product.category.get_absolute_url }}">{{ product.category.name }}</a>
+                            </div><!-- End .product-cat -->
+                            <h3 class="product-title"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h3><!-- End .product-title -->
+                            <div class="product-price">
+                                TZS{{ product.price }}
+                            </div><!-- End .product-price -->
+                            <div class="ratings-container">
+                                <div class="ratings">
+                                    <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
+                                </div><!-- End .ratings -->
+                            </div><!-- End .rating-container -->
+                        </div><!-- End .product-body -->
+                    </div></div><div class="owl-item active" style="width: 340px; margin-right: 20px;"><div class="product">
+
+                        {% endfor %}
+                    </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev disabled"><i class="icon-angle-left"></i></button><button type="button" role="presentation" class="owl-next disabled"><i class="icon-angle-right"></i></button></div><div class="owl-dots"><button role="button" class="owl-dot active"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button></div></div><!-- End .owl-carousel -->
+            </div><!-- .End .tab-pane -->
+        </div><!-- End .tab-content -->
+    </div>
+    <!-- ................END OF AUDIO AND VIDEO CATEGORY................. -->
+    <div class="mb-3"></div>
+
+
+
+    <!-- ............start of the special offer container................................ -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="banner banner-overlay banner-overlay-light">
+                    <a href="{{smart_watches_category.get_absolute_url}}">
+                        <img src="{% static "assets/images/demos/demo-13/banners/banner-4.jpg" %}" alt="Banner">
+                    </a>
+
+                    <div class="banner-content">
+                        <h4 class="banner-subtitle d-none d-sm-block"><a href="{{smart_watches_category.get_absolute_url}}">Spring Sale is Coming</a></h4><!-- End .banner-subtitle -->
+                        <h3 class="banner-title"><a href="{{smart_watches_category.get_absolute_url}}">All Smart Watches & TVs<br>Discount <br><span class="text-primary">15% off</span></a></h3><!-- End .banner-title -->
+                        <a href="{{smart_watches_category.get_absolute_url}}" class="banner-link banner-link-dark">Discover Now <i class="icon-long-arrow-right"></i></a>
+                    </div><!-- End .banner-content -->
+                </div><!-- End .banner -->
+            </div><!-- End .col-lg-6 -->
+
+            <div class="col-lg-6">
+                <div class="banner banner-overlay">
+                    <a href="{{audio_and_video_category.get_absolute_url}}">
+                        <img src="{% static "assets/images/demos/demo-13/banners/banner-5.png" %}" alt="Banner">
+                    </a>
+
+                    <div class="banner-content">
+                        <h4 class="banner-subtitle text-white  d-none d-sm-block"><a href="{{audio_and_video_category.get_absolute_url}}">Amazing Value</a></h4><!-- End .banner-subtitle -->
+                        <h3 class="banner-title text-white"><a href="{{audio_and_video_category.get_absolute_url}}">Headphones Trending <br>JBL Harman <br><span>from TZS25000,00</span></a></h3><!-- End .banner-title -->
+                        <a href="{{audio_and_video_category.get_absolute_url}}" class="banner-link">Discover Now <i class="icon-long-arrow-right"></i></a>
+                    </div><!-- End .banner-content -->
+                </div><!-- End .banner -->
+            </div><!-- End .col-lg-6 -->
+        </div><!-- End .row -->
+    </div>
+    <!-- ...........................end for special offer container.......................... -->
+    <div class="mb-1"></div>
+
+    <!-- ..............................START OF CLOTHING AND APPAREL PRODUCT LIST.................... -->
+    <div class="container electronics">
+        <div class="heading heading-flex heading-border mb-3">
+            <div class="heading-left">
+                <h2 class="title">SMARTPHONES & MOBILE DEVICES</h2><!-- End .title -->
+            </div><!-- End .heading-left -->
+        </div><!-- End .heading -->
+
+        <div class="tab-content tab-content-carousel">
+            <div class="tab-pane p-0 fade show active" id="elec-new-tab" role="tabpanel" aria-labelledby="elec-new-link">
+                <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow owl-loaded owl-drag" data-toggle="owl" data-owl-options="{
+                        &quot;nav&quot;: false, 
+                        &quot;dots&quot;: true,
+                        &quot;margin&quot;: 20,
+                        &quot;loop&quot;: false,
+                        &quot;responsive&quot;: {
+                            &quot;0&quot;: {
+                                &quot;items&quot;:2
+                            },
+                            &quot;480&quot;: {
+                                &quot;items&quot;:2
+                            },
+                            &quot;768&quot;: {
+                                &quot;items&quot;:3
+                            },
+                            &quot;992&quot;: {
+                                &quot;items&quot;:4
+                            },
+                            &quot;1280&quot;: {
+                                &quot;items&quot;:5,
+                                &quot;nav&quot;: true
+                            }
+                        }
+                    }">
+                    <!-- End .product -->
+
+                    <!-- End .product -->
+
+                    <!-- End .product -->
+
+                    <!-- End .product -->
+
+                    <!-- End .product -->
+                <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1800px;"><div class="owl-item active" style="width: 340px; margin-right: 20px;"><div class="product">
+                        
+                    {% for product in smartphones_and_mobile_devices%}
+                    <figure class="product-media">
+                            <a href="{{product.get_absolute_url}}">
+                                <img src="{% if product.image %}{{ product.image.url }}{% endif %}" class="product-image" style="width: 100%;height: 80%;">
+                            </a>
+
+                            <div class="product-action">
+                                <a  class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
+                            </div><!-- End .product-action -->
+                        </figure><!-- End .product-media -->
+
+                        <div class="product-body">
+                            <div class="product-cat">
+                                <a href="{{ product.category.get_absolute_url }}">{{ product.category.name }}</a>
+                            </div><!-- End .product-cat -->
+                            <h3 class="product-title"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h3><!-- End .product-title -->
+                            <div class="product-price">
+                                TZS{{ product.price }}
+                            </div><!-- End .product-price -->
+                            <div class="ratings-container">
+                                <div class="ratings">
+                                    <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
+                                </div><!-- End .ratings -->
+                            </div><!-- End .rating-container -->
+                        </div><!-- End .product-body -->
+                    </div></div><div class="owl-item active" style="width: 340px; margin-right: 20px;"><div class="product">
+
+                        {% endfor %}
+                    </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev disabled"><i class="icon-angle-left"></i></button><button type="button" role="presentation" class="owl-next disabled"><i class="icon-angle-right"></i></button></div><div class="owl-dots"><button role="button" class="owl-dot active"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button></div></div><!-- End .owl-carousel -->
+            </div><!-- .End .tab-pane -->
+        </div><!-- End .tab-content -->
+
+        <!-- .................................END OF CLOTHING AND AOOAREL PRODUCT LIST................... -->
+
+        <div class="mb-3"></div>
+
+
+        <!-- ..................start of  power and charging categry.................-->
+        <div class="container electronics">
+            <div class="heading heading-flex heading-border mb-3">
+                <div class="heading-left">
+                    <h2 class="title">POWER & CHARGING</h2><!-- End .title -->
+                </div><!-- End .heading-left -->
+            </div><!-- End .heading -->
+    
+            <div class="tab-content tab-content-carousel">
+                <div class="tab-pane p-0 fade show active" id="elec-new-tab" role="tabpanel" aria-labelledby="elec-new-link">
+                    <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow owl-loaded owl-drag" data-toggle="owl" data-owl-options="{
+                            &quot;nav&quot;: false, 
+                            &quot;dots&quot;: true,
+                            &quot;margin&quot;: 20,
+                            &quot;loop&quot;: false,
+                            &quot;responsive&quot;: {
+                                &quot;0&quot;: {
+                                    &quot;items&quot;:2
+                                },
+                                &quot;480&quot;: {
+                                    &quot;items&quot;:2
+                                },
+                                &quot;768&quot;: {
+                                    &quot;items&quot;:3
+                                },
+                                &quot;992&quot;: {
+                                    &quot;items&quot;:4
+                                },
+                                &quot;1280&quot;: {
+                                    &quot;items&quot;:5,
+                                    &quot;nav&quot;: true
+                                }
+                            }
+                        }">
+                        <!-- End .product -->
+    
+                        <!-- End .product -->
+    
+                        <!-- End .product -->
+    
+                        <!-- End .product -->
+    
+                        <!-- End .product -->
+                    <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1800px;"><div class="owl-item active" style="width: 340px; margin-right: 20px;"><div class="product">
+                            
+                        {% for product in power_and_charging %}
+                        <figure class="product-media">
+                                <a href="product.html">
+                                    <img src="{% if product.image %}{{ product.image.url }}{% endif %}" class="product-image">
+                                </a>
+    
+                                <div class="product-action">
+                                    <a href="index-13.html#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
+                                </div><!-- End .product-action -->
+                            </figure><!-- End .product-media -->
+    
+                            <div class="product-body">
+                                <div class="product-cat">
+                                    <a href="{{ product.category.get_absolute_url }}">{{ product.category.name }}</a>
+                                </div><!-- End .product-cat -->
+                                <h3 class="product-title"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h3><!-- End .product-title -->
+                                <div class="product-price">
+                                    TZS{{ product.price }}
+                                </div><!-- End .product-price -->
+                                <div class="ratings-container">
+                                    <div class="ratings">
+                                        <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
+                                    </div><!-- End .ratings -->
+                                </div><!-- End .rating-container -->
+                            </div><!-- End .product-body -->
+                        </div></div><div class="owl-item active" style="width: 340px; margin-right: 20px;"><div class="product">
+    
+                            {% endfor %}
+                        </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev disabled"><i class="icon-angle-left"></i></button><button type="button" role="presentation" class="owl-next disabled"><i class="icon-angle-right"></i></button></div><div class="owl-dots"><button role="button" class="owl-dot active"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button></div></div><!-- End .owl-carousel -->
+                </div><!-- .End .tab-pane -->
+            </div><!-- End .tab-content -->
+            <!-- ...............end of charging and power category....... -->
+            <div class="mb-3"></div>
+
+
+
+        <!-- .............GIVE THE USER A CHANCE TO SUBSCRIBE TO OUR NEWS LETTER........................ -->
+        <div class="cta cta-horizontal cta-horizontal-box bg-primary">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-2xl-5col">
+                        <h3 class="cta-title text-white">Join Our Newsletter</h3><!-- End .cta-title -->
+                        <p class="cta-desc text-white">Subcribe to get information about products and coupons</p><!-- End .cta-desc -->
+                    </div><!-- End .col-lg-5 -->
+                    
+                    <div class="col-3xl-5col">
+                        <form action="{% url "shop:newsletersubscription" %}" method="post">
+                            {% csrf_token %}
+                            <div class="input-group">
+                                <input type="email" class="form-control form-control-white" name="subscription-email" placeholder="Enter your Email Address" aria-label="Email Adress" required="">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-white-2" type="submit"><span>Subscribe</span><i class="icon-long-arrow-right"></i></button>
+                                </div><!-- .End .input-group-append -->
+                            </div><!-- .End .input-group -->
+                        </form>
+                    </div><!-- End .col-lg-7 -->
+                </div><!-- End .row -->
+            </div><!-- End .container -->
+        </div>
+        <!-- ...........................END OF NEWS LETTER SUBSCRIPTION........................ -->
+
+        <!-- .....................jquery plugin for the popup......................... -->
+        <script src="{% static "assets/js/jquery.magnific-popup.min.js" %}"></script>
+
+{% endblock%}

@@ -1,0 +1,501 @@
+
+
+{% load static %}
+{% load custom_tags %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}My shop{% endblock %}</title>
+
+    <!-- Favicon -->
+     <link rel="apple-touch-icon" sizes="180x180" href="{% static "assets/images/icons/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "assets/images/icons/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "assets/images/icons/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "assets/images/icons/site.webmanifest.html" %}">
+    <link rel="mask-icon" href="{% static "assets/images/icons/safari-pinned-tab.svg" %}" color="#666666">
+    <link rel="shortcut icon" href="{% static "assets/images/icons/favicon.ico" %}">
+    <meta name="apple-mobile-web-app-title" content="Molla">
+    <meta name="application-name" content="Molla">
+    <meta name="msapplication-TileColor" content="#cc9966">
+    <meta name="msapplication-config" content="{% static "assets/images/icons/browserconfig.xml" %}">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="{% static "assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css" %}"> 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+     <!-- Plugins CSS File --> 
+    <link rel="stylesheet" href="{% static "assets/css/bootstrap.min.css" %}"> 
+     <link rel="stylesheet" href="{% static "assets/css/plugins/owl-carousel/owl.carousel.css" %}">
+     <link rel="stylesheet" href="{% static "assets/css/plugins/magnific-popup/magnific-popup.css" %}">
+     <link rel="stylesheet" href="{% static "assets/css/plugins/jquery.countdown.css" %}"> 
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="{% static "assets/css/style.css" %}">
+    <link rel="stylesheet" href="{% static "assets/css/skins/skin-demo-13.css" %}">
+    <link rel="stylesheet" href="{% static "assets/css/demos/demo-13.css" %}"">
+    <link rel="stylesheet" href="{% static "assets/css/pdf.css" %}">
+  </head>
+
+  <body class="loaded">
+    <div class="page-wrapper">
+        <header class="header header-10 header-intro-clearance">
+            <div class="header-top">
+                <div class="container">
+                    <div class="header-left">
+                        <a href="tel:#"><i class="icon-phone"></i>Call: +2556 2910 7913</a>
+                    </div><!-- End .header-left -->
+
+                    <div class="header-right">
+
+                        <ul class="top-menu">
+                            <li>
+                                <a href="index-13.html#">Links</a>
+                                <ul>
+                                    <li>
+                                        <div class="header-dropdown">
+                                            <a href="index-13.html#">TZS</a>
+                                            <div class="header-menu">
+                                                <ul>
+                                                    <li><a href="index-13.html#">TZS</a></li>
+                                                    <li><a href="index-13.html#">Usd</a></li>
+                                                </ul>
+                                            </div><!-- End .header-menu -->
+                                        </div><!-- End .header-dropdown -->
+                                    </li>
+                                    <li>   
+                                        <div class="header-dropdown">
+                                            <a href="index-13.html#">Engligh</a>
+                                            <div class="header-menu">
+                                                <ul>
+                                                    <li><a href="index-13.html#">English</a></li>
+                                                    <li><a href="index-13.html#">Swahili</a></li>
+                                            </div><!-- End .header-menu -->
+                                        </div><!-- End .header-dropdown -->
+                                    </li>
+                                    <li class="login">
+                                        {% if request.user.is_authenticated %}
+                                            <a href="{% url "account:logout" %}" >Log out</a>
+                                        {% else %}
+                                            <a href="{% url "account:login" %}" >Sign in / Sign up</a>
+                                        {% endif %}
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul><!-- End .top-menu -->
+                    </div><!-- End .header-right -->
+                </div><!-- End .container -->
+            </div><!-- End .header-top -->
+
+
+            <div class="header-middle">
+                <div class="container">
+                    <div class="header-left">
+                        <button class="mobile-menu-toggler">
+                            <span class="sr-only">Toggle mobile menu</span>
+                            <i class="icon-bars"></i>
+                        </button>
+                        
+                        <a href="{% url "shop:product_list" %}" class="logo">
+                            <img src="{% static "assets/images/demos/demo-13/logo1.png" %}" alt="Molla Logo" width="105" height="25">
+                        </a>
+                    </div><!-- End .header-left -->
+
+                    <div class="header-center">
+                        <div class="header-search header-search-extended header-search-visible header-search-no-radius d-none d-lg-block">
+                            <a href="index-13.html#" class="search-toggle" role="button"><i class="icon-search"></i></a>
+                            <form action="index-13.html#" method="get">
+                                <div class="header-search-wrapper search-wrapper-wide">
+                                    <div class="select-custom">
+                                        <select id="cat" name="cat">
+                                            <option value="">All Departments</option>
+                                            <option value="1">Fashion</option>
+                                        </select>
+                                    </div><!-- End .select-custom -->
+                                    <label for="q" class="sr-only">Search</label>
+                                    <input type="search" class="form-control" name="q" id="q" placeholder="Search product ..." required="">
+                                    <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+                                </div><!-- End .header-search-wrapper -->
+                            </form>
+                        </div><!-- End .header-search -->
+                    </div>
+
+                    <div class="header-right">
+                        <div class="header-dropdown-link">
+                            
+
+                            <a href="wishlist.html" class="wishlist-link">
+                                <i class="icon-heart-o"></i>
+                                <span class="wishlist-count">3</span>
+                                <span class="wishlist-txt">Wishlist</span>
+                            </a>
+
+                            <div class="dropdown cart-dropdown">
+                                <a href="index-13.html#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                                    <i class="icon-shopping-cart"></i>
+                                    <span class="cart-count">{{cart|length}}</span>
+                                    <span class="cart-txt">Cart</span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <div class="dropdown-cart-products">
+
+                                        {% for item in cart %}
+                                            {% with product=item.product %}
+                                        <div class="product">
+                                            <div class="product-cart-details">
+                                                <h4 class="product-title">
+                                                    <a href="{{ product.get_absolute_url }}">{{ product.name }}s</a>
+                                                </h4>
+
+                                                <span class="cart-product-info">
+                                                    <span class="cart-product-qty">{{ item.quantity }}</span>
+                                                    x TZS{{ item.price }}
+                                                </span>
+                                            </div><!-- End .product-cart-details -->
+
+                                            <figure class="product-image-container">
+                                                <a href="{{ product.get_absolute_url }}" class="product-image">
+                                                    <img src="{% if product.image %}{{ product.image.url }}{% endif%}" alt="product">
+                                                </a>
+                                            </figure>
+                                            <a href="index-13.html#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
+                                        </div><!-- End .product -->
+                                        {% endwith %}
+                                        {% endfor %}
+                                    </div><!-- End .cart-product -->
+
+                                    <div class="dropdown-cart-total">
+                                        <span>Total</span>
+
+                                        <span class="cart-total-price">TZS{{ cart.get_total_price }}</span>
+                                    </div><!-- End .dropdown-cart-total -->
+
+                                    <div class="dropdown-cart-action">
+                                        <a href="{% url 'cart:cart_detail' %}" class="btn btn-primary">View Cart</a>
+                                        <a href="{% url 'order:order_checkout' %}" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
+                                    </div><!-- End .dropdown-cart-total -->
+                                </div><!-- End .dropdown-menu -->
+                            </div><!-- End .cart-dropdown -->
+                        </div>
+                    </div><!-- End .header-right -->
+                </div><!-- End .container -->
+            </div>
+            <!-- .....................End .header-middle .....................................-->
+
+           
+            <div class="sticky-wrapper" style=""><div class="header-bottom sticky-header">
+                <div class="container">
+                    <div class="header-left">
+                        <div class="dropdown category-dropdown is-on" data-visible="true">
+                            <a href="index-13.html#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" title="Browse Categories">
+                                Browse Categories
+                            </a>
+
+                            <div class="dropdown-menu">
+                                <nav class="side-nav">
+                                    <ul class="menu-vertical sf-arrows sf-js-enabled" style="touch-action: pan-y;">
+                                      {% categories as categories %} 
+                                      {% for category in categories %}
+                                        <li class="megamenu-container">
+                                            <a class="sf-with-ul" href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+                                        </li>
+                                        {% endfor %}
+                                        
+                                    </ul><!-- End .menu-vertical -->
+                                </nav><!-- End .side-nav -->
+                            </div><!-- End .dropdown-menu -->
+                        </div><!-- End .category-dropdown -->
+                    </div><!-- End .col-lg-3 -->
+                    
+                <!-- ########## END OF BROWSE BY CATEGORY################ -->
+
+
+
+<!-- ................................START OF THE HEADER CENRER............................. -->
+                    <div class="header-center">
+                        <nav class="main-nav">
+                            <ul class="menu sf-arrows sf-js-enabled" style="touch-action: pan-y;">
+                                <li class="megamenu-container active">
+                                    <a href="{% url 'shop:product_list' %}" >Home</a>
+                                </li>
+                                
+                                <li class="">
+                                    <a href="{% url 'shop:categories' %}">Shop</a>
+                                </li>
+
+                                <li class="">
+                                    <a href="{% url "shop:products" %}" >Product</a>
+                                </li>
+
+                                <li class="">
+                                    <a href="{% url "customer_support:contact_us" %}" >Contact Us</a>
+                                </li>
+
+                            </ul><!-- End .menu -->
+                        </nav><!-- End .main-nav -->
+                    </div><!-- End .col-lg-9 -->
+                    <div class="header-right">
+                        <i class="la la-lightbulb-o"></i><p>Clearance Up to 30% Off</p>
+                    </div>
+                </div><!-- End .container -->
+            </div></div><!-- End .header-bottom -->
+        </header>
+        <!-- end header -->
+
+  
+      {% block content %}
+      {% endblock %}
+
+
+<!-- ...........................START OF FOOTER.............................................. -->
+
+      <footer class="footer footer-2">
+        <div class="icon-boxes-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="icon-box icon-box-side">
+                            <span class="icon-box-icon">
+                                <i class="icon-rocket"></i>
+                            </span>
+
+                            <div class="icon-box-content">
+                                <h3 class="icon-box-title">Free Shipping</h3><!-- End .icon-box-title -->
+                                <p>Orders $50 or more</p>
+                            </div><!-- End .icon-box-content -->
+                        </div><!-- End .icon-box -->
+                    </div><!-- End .col-sm-6 col-lg-3 -->
+                    
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="icon-box icon-box-side">
+                            <span class="icon-box-icon">
+                                <i class="icon-rotate-left"></i>
+                            </span>
+
+                            <div class="icon-box-content">
+                                <h3 class="icon-box-title">Free Returns</h3><!-- End .icon-box-title -->
+                                <p>Within 30 days</p>
+                            </div><!-- End .icon-box-content -->
+                        </div><!-- End .icon-box -->
+                    </div><!-- End .col-sm-6 col-lg-3 -->
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="icon-box icon-box-side">
+                            <span class="icon-box-icon">
+                                <i class="icon-info-circle"></i>
+                            </span>
+
+                            <div class="icon-box-content">
+                                <h3 class="icon-box-title">Get 20% Off 1 Item</h3><!-- End .icon-box-title -->
+                                <p>When you sign up</p>
+                            </div><!-- End .icon-box-content -->
+                        </div><!-- End .icon-box -->
+                    </div><!-- End .col-sm-6 col-lg-3 -->
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="icon-box icon-box-side">
+                            <span class="icon-box-icon">
+                                <i class="icon-life-ring"></i>
+                            </span>
+
+                            <div class="icon-box-content">
+                                <h3 class="icon-box-title">We Support</h3><!-- End .icon-box-title -->
+                                <p>24/7 amazing services</p>
+                            </div><!-- End .icon-box-content -->
+                        </div><!-- End .icon-box -->
+                    </div><!-- End .col-sm-6 col-lg-3 -->
+                </div><!-- End .row -->
+            </div><!-- End .container -->
+        </div><!-- End .icon-boxes-container -->
+
+        <div class="footer-middle border-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-6">
+                        <div class="widget widget-about">
+                            <img src="assets/images/demos/demo-13/logo-footer.png" class="footer-logo" alt="Footer Logo" width="105" height="25">
+                            <p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus. </p>
+                            
+                            <div class="widget-about-info">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-4">
+                                        <span class="widget-about-title">Got Question? Call us 24/7</span>
+                                        <a href="tel:123456789">+0123 456 789</a>
+                                    </div><!-- End .col-sm-6 -->
+                                    <div class="col-sm-6 col-md-8">
+                                        <span class="widget-about-title">Payment Method</span>
+                                        <figure class="footer-payments">
+                                            <img src="assets/images/payments.png" alt="Payment methods" width="272" height="20">
+                                        </figure><!-- End .footer-payments -->
+                                    </div><!-- End .col-sm-6 -->
+                                </div><!-- End .row -->
+                            </div><!-- End .widget-about-info -->
+                        </div><!-- End .widget about-widget -->
+                    </div><!-- End .col-sm-12 col-lg-3 -->
+
+                    <div class="col-sm-4 col-lg-2">
+                        <div class="widget">
+                            <h4 class="widget-title">Information</h4><!-- End .widget-title -->
+
+                            <ul class="widget-list">
+                                <li><a href="{% url "customer_support:about_us" %}">About Molla</a></li>
+                                <li><a href="{% url "customer_support:how_to_shop" %}">How to shop on Molla</a></li>
+                                <li><a href="{% url "customer_support:faq" %}">FAQ</a></li>
+                                <li><a href="{% url "customer_support:contact_us" %}">Contact us</a></li>
+                                <li><a href="{% url "account:login" %}">Log in</a></li>
+                            </ul><!-- End .widget-list -->
+                        </div><!-- End .widget -->
+                    </div><!-- End .col-sm-4 col-lg-3 -->
+
+                    <div class="col-sm-4 col-lg-2">
+                        <div class="widget">
+                            <h4 class="widget-title">Customer Service</h4><!-- End .widget-title -->
+
+                            <ul class="widget-list">
+                                <li><a href="{% url "customer_support:payment_methods" %}">Payment Methods</a></li>
+                                <li><a href="{% url "customer_support:money_back_guarantee" %}">Money-back guarantee!</a></li>
+                                <li><a href="{% url "customer_support:returns" %}">Returns</a></li>
+                                <li><a href="{% url "customer_support:shipping" %}">Shipping</a></li>
+                                <li><a href="{% url "customer_support:terms_and_conditions" %}">Terms and conditions</a></li>
+                                <li><a href="{% url "customer_support:privacy_policy" %}">Privacy Policy</a></li>
+                            </ul><!-- End .widget-list -->
+                        </div><!-- End .widget -->
+                    </div><!-- End .col-sm-4 col-lg-3 -->
+
+                    <div class="col-sm-4 col-lg-2">
+                        <div class="widget">
+                            <h4 class="widget-title">My Account</h4><!-- End .widget-title -->
+
+                            <ul class="widget-list">
+                                <li><a href="{% url "account:login" %}">Sign In</a></li>
+                                <li><a href="{% url "cart:cart_detail" %}">View Cart</a></li>
+                                <li><a href="index-13.html#">My Wishlist</a></li>
+                                <li><a href="index-13.html#">Track My Order</a></li>
+                                <li><a href="{% url "customer_support:help" %}">Help</a></li>
+                            </ul><!-- End .widget-list -->
+                        </div><!-- End .widget -->
+                    </div><!-- End .col-sm-64 col-lg-3 -->
+                </div><!-- End .row -->
+            </div><!-- End .container -->
+        </div><!-- End .footer-middle -->
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="footer-copyright">Copyright © {{current_year}} Nasa Store. All Rights Reserved.</p><!-- End .footer-copyright -->
+                <ul class="footer-menu">
+                    <li><a href="index-13.html#">Terms Of Use</a></li>
+                    <li><a href="index-13.html#">Privacy Policy</a></li>
+                </ul><!-- End .footer-menu -->
+
+                <div class="social-icons social-icons-color">
+                    <span class="social-label">Social Media</span>
+                    <a href="index-13.html#" class="social-icon social-facebook" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
+                    <a href="index-13.html#" class="social-icon social-twitter" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
+                    <a href="index-13.html#" class="social-icon social-instagram" title="Instagram" target="_blank"><i class="icon-instagram"></i></a>
+                    <a href="index-13.html#" class="social-icon social-youtube" title="Youtube" target="_blank"><i class="icon-youtube"></i></a>
+                    <a href="index-13.html#" class="social-icon social-pinterest" title="Pinterest" target="_blank"><i class="icon-pinterest"></i></a>
+                </div><!-- End .soial-icons -->
+            </div><!-- End .container -->
+        </div><!-- End .footer-bottom -->
+    </footer>
+
+    <!-- ...........................END OF FOOTER............................................. -->
+
+    
+    </div>
+    <!-- End of page wrapper -->
+
+
+
+<!-- ...................ADDITIONAL CONTENTS THAT HAVE TO BE EDITED................................... -->
+
+
+    <button id="scroll-top" title="Back to Top" class="show"><i class="icon-arrow-up"></i></button>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div>
+    <!-- End mobile menu overlay -->
+
+    <!-- Mobile menu container -->
+    <div class="mobile-menu-container mobile-menu-light">
+        <div class="mobile-menu-wrapper">
+            <span class="mobile-menu-close"><i class="icon-close"></i></span>
+            
+            <form action="index-13.html#" method="get" class="mobile-search">
+                <label for="mobile-search" class="sr-only">Search</label>
+                <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..." required="">
+                <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+            </form>
+
+            <ul class="nav nav-pills-mobile nav-border-anim" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="mobile-menu-link" data-toggle="tab" href="index-13.html#mobile-menu-tab" role="tab" aria-controls="mobile-menu-tab" aria-selected="true">Menu</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="mobile-menu-tab" role="tabpanel" aria-labelledby="mobile-menu-link">
+                    <nav class="mobile-nav">
+                        <ul class="mobile-menu">
+                            <li class="active">
+                                <a href="{% url "shop:product_list" %}">Home</a>
+                            </li>
+
+                            <li>
+                                <a href="{% url "shop:categories" %}" >Shop</a>
+                            </li>
+
+                            <li>
+                                <a href="{% url "shop:products" %}">Products</span></a>
+                            </li>
+
+                            <li>
+                                <a href="{% url "customer_support:contact_us" %}">Contact Us</a>
+                            </li>
+
+                            <li>
+                                <a href="{% url "account:login" %}">login</a>
+                            </li>
+
+                        </ul>
+                    </nav><!-- End .mobile-nav -->
+                </div><!-- .End .tab-pane -->
+
+            </div><!-- End .tab-content -->
+
+            <div class="social-icons">
+                <a href="index-13.html#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
+                <a href="index-13.html#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
+                <a href="index-13.html#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
+                <a href="index-13.html#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
+            </div><!-- End .social-icons -->
+        </div><!-- End .mobile-menu-wrapper -->
+    </div>
+<!-- ..........................End mobile menu container..................... -->
+
+
+    <!-- jqiery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+     <!-- Plugins JS File -->
+     <script src="{% static "assets/js/jquery.min.js" %}"></script>
+     <script src="{% static "assets/js/bootstrap.bundle.min.js" %}"></script>
+     <script src="{% static "assets/js/jquery.hoverIntent.min.js" %}"></script>
+     <script src="{% static "assets/js/jquery.waypoints.min.js" %}"></script>
+     <script src="{% static "assets/js/superfish.min.js" %}"></script>
+     <script src="{% static "assets/js/owl.carousel.min.js" %}"></script>
+     <script src="{% static "assets/js/bootstrap-input-spinner.js" %}"></script>
+     <script src="{% static "assets/js/jquery.plugin.min.js" %}"></script>
+     <script src="{% static "assets/js/jquery.countdown.min.js" %}"></script>
+     
+     <!-- Main JS File -->
+     <script src="{% static "assets/js/jquery.js" %}"></script>
+     <script src="{% static "assets/js/main.js" %}"></script>
+     <script src="{% static "assets/js/demos/demo-13.js" %}"></script>
+    
+
+
+  </body>
+</html>
